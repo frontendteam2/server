@@ -5,11 +5,12 @@ import imgUploadRouter from "./router/imgUploadRouter.js";
 const PORT = 8000;
 const server = express();
 
-server.use(cors()).use(express.json()).use(express.urlencoded());
+server.use(express.json());
+server.use(express.urlencoded());
+server.use(cors());
 
 server.use("/imgupload", imgUploadRouter)
-
-server.use('/imgupload',express.static(path.join('imgUploads')))
+server.use("/imgupload",express.static("imgUpload"));
 
 server.listen(PORT, () => {
   console.log(`server ---> ${PORT}`);
