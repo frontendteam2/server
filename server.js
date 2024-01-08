@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from "cors";
 import imgUploadRouter from "./router/imgUploadRouter.js";
+import reviewRouter from "./router/reviewRouter.js";
+import path from 'path';
 
 const PORT = 8000;
 const server = express();
@@ -10,6 +12,7 @@ server.use(express.urlencoded());
 server.use(cors());
 
 server.use("/imgupload", imgUploadRouter)
+server.use("/review",reviewRouter)
 server.use("/imgupload",express.static("imgUpload"));
 
 server.listen(PORT, () => {
