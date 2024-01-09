@@ -9,8 +9,19 @@ export async function checkUrl(req, res) {
   res.json(result)
 }
 export async function newForm(req, res) {
-  let {title,url } = req.body[0]
-  // const result = await newFormRepository.newForm(title,url);
-  // console.log(result);
-  console.log(req.body[1]); 
+  let { title, url } = req.body[0]
+  // console.log(req.body);
+  
+  const result = await newFormRepository.newForm(title, url);
+  let num = result
+  try {
+    for (let v of req.body[1]) {
+      let { category, content } = v;
+      let success = await newFormRepository.detailForm(category, content, num);
+    };
+  } catch (error) {
+    console.error(error);
+  }
+  res.json('success')
+
 }
