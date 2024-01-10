@@ -7,14 +7,15 @@ import path from 'path';
 const PORT = 8000;
 const server = express();
 
-server.use(cors()).use(express.json()).use(express.urlencoded());
+server.use(express.json());
+server.use(express.urlencoded());
+server.use(cors());
 
-//router
 
 server.use("/imgupload", imgUploadRouter)
 server.use("/review",reviewRouter)
-//get server file
-server.use('/imgupload',express.static(path.join('imgUploads')))
+server.use("/imgupload",express.static("imgUpload"));
+
 
 server.listen(PORT, () => {
   console.log(`server ---> ${PORT}`);
