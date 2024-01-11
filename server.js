@@ -12,10 +12,12 @@ server.use(express.json());
 server.use(express.urlencoded());
 server.use(cors());
 
+
 server.use("/imgupload", imgUploadRouter)
 server.use("/review",reviewRouter)
 server.use("/newForm", newFormRouter)
 server.use("/imgupload",express.static("imgUpload"));
+
 
 server.listen(PORT, () => {
   console.log(`server ---> ${PORT}`);
