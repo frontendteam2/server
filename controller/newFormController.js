@@ -10,7 +10,7 @@ export async function checkUrl(req, res) {
 }
 export async function newForm(req, res) {
   let { title, url } = req.body[0]
-  // console.log(req.body);
+  console.log(req.body);
   
   const result = await newFormRepository.newForm(title, url);
   let num = result
