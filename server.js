@@ -4,7 +4,7 @@ import imgUploadRouter from "./router/imgUploadRouter.js";
 import reviewRouter from "./router/reviewRouter.js";
 import path from 'path';
 import newFormRouter from "./router/newFormRouter.js";
-import viewRouter from "./router/newFormRouter.js";
+import viewRouter from "./router/viewRouter.js";
 
 const PORT = 8000;
 const server = express();
