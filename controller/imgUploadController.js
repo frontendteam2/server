@@ -26,7 +26,6 @@ export async function imgUpload(req, res){
       });
 
       const resultString = imgUrl.join(', ');
-      console.log(resultString);
       res.json(resultString);
     }
   });
